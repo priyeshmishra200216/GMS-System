@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Match Score</title>
+</head>
+<body>
+    <h1>Update Match Scores</h1>
+    
+    <form action="{{ url_for('update_score') }}" method="POST">
+        <label for="match_id">Match ID:</label>
+        <input type="text" id="match_id" name="match_id" required><br>
+
+        <label for="score">Score:</label>
+        <input type="text" id="score" name="score" required><br>
+
+        <label for="winner_id">Winner (Athlete ID):</label>
+        <input type="text" id="winner_id" name="winner_id" required><br>
+
+        <button type="submit">Update Score</button>
+    </form>
+
+    <!-- Link to go back to the draws page -->
+    <a href="{{ url_for('draws') }}">Back to Tournament Draws</a>
+</body>
+</html>

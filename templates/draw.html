@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tournament Draws</title>
+</head>
+<body>
+    <h1>Tournament Draws</h1>
+    
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Match ID</th>
+                <th>Athlete 1</th>
+                <th>Athlete 2</th>
+                <th>Score</th>
+                <th>Winner</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for match in matches %}
+            <tr>
+                <td>{{ match.id }}</td>
+                <td>{{ match.athlete1.name if match.athlete1 else 'Bye' }}</td>
+                <td>{{ match.athlete2.name if match.athlete2 else 'Bye' }}</td>
+                <td>{{ match.score if match.score else 'Not Yet Played' }}</td>
+                <td>{{ match.winner if match.winner else 'TBD' }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <!-- Link to go back to the dashboard -->
+    <a href="{{ url_for('dashboard') }}">Back to Dashboard</a>
+</body>
+</html>
